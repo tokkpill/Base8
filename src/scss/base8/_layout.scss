@@ -1,0 +1,1002 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+// ── Auth Pages (Dark Mode) ──
+.auth {
+    @include m.contenedor-sm;
+    padding: 8rem 2rem;
+
+    &__heading {
+        @include m.texto-fluido(2.4rem, 3.6rem);
+        font-weight: v.$black;
+        text-align: center;
+        margin: 0 0 0.8rem;
+        @include m.texto-degradado(v.$primary, v.$primary-light);
+    }
+
+    &__texto {
+        text-align: center;
+        color: v.$text-secondary;
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+    }
+}
+
+// ── Forms (Dark Theme) ──
+.formulario {
+    @include m.glassmorphism-strong;
+    padding: 3rem;
+    margin-bottom: 2rem;
+
+    &__campo {
+        margin-bottom: 2rem;
+    }
+
+    &__label {
+        display: block;
+        font-size: 1.3rem;
+        font-weight: v.$semibold;
+        color: v.$text-secondary;
+        margin-bottom: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+
+    &__input {
+        @include m.input-dark;
+    }
+
+    &__select {
+        @include m.input-dark;
+        cursor: pointer;
+    }
+
+    &__textarea {
+        @include m.input-dark;
+        resize: vertical;
+        min-height: 12rem;
+    }
+
+    &__submit {
+        @include m.boton(v.$primary, v.$blanco);
+        width: 100%;
+        padding: 1.4rem;
+        font-size: 1.6rem;
+        margin-top: 1rem;
+        border-radius: v.$radius-md;
+    }
+
+    &__file {
+        @include m.input-dark;
+        padding: 1rem;
+        cursor: pointer;
+
+        &::file-selector-button {
+            @include m.boton(v.$bg-elevated, v.$text-secondary);
+            padding: 0.6rem 1.4rem;
+            font-size: 1.3rem;
+            margin-right: 1rem;
+            border-radius: v.$radius-sm;
+        }
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+
+        @include m.tablet {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+// ── Action Links ──
+.acciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    &__enlace {
+        color: v.$text-muted;
+        font-size: 1.4rem;
+        transition: color v.$transition-fast;
+
+        &:hover {
+            color: v.$primary;
+        }
+    }
+}
+
+// ── Alerts (Dark Theme) ──
+.alerta {
+    padding: 1.2rem 2rem;
+    border-radius: v.$radius-md;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: v.$medium;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    &--error {
+        background: rgba(v.$error, 0.12);
+        color: v.$error;
+        border: 1px solid rgba(v.$error, 0.2);
+    }
+
+    &--exito {
+        background: rgba(v.$success, 0.12);
+        color: v.$success;
+        border: 1px solid rgba(v.$success, 0.2);
+    }
+}
+
+// ── Base8 Header ──
+.b8-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    @include m.glassmorphism-strong;
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+
+    &__inner {
+        @include m.contenedor;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+        height: 7rem;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-size: 2.2rem;
+        font-weight: v.$black;
+        color: v.$text-primary;
+
+        span {
+            @include m.texto-degradado(v.$primary, v.$accent);
+        }
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    &__link {
+        padding: 0.8rem 1.4rem;
+        font-size: 1.4rem;
+        font-weight: v.$medium;
+        color: v.$text-secondary;
+        border-radius: v.$radius-md;
+        transition: all v.$transition-fast;
+
+        &:hover {
+            color: v.$text-primary;
+            background: v.$bg-hover;
+        }
+
+        &--active {
+            color: v.$primary;
+            background: rgba(v.$primary, 0.1);
+        }
+
+        &--cta {
+            @include m.boton(v.$primary, v.$blanco);
+            padding: 0.7rem 1.8rem;
+            font-size: 1.3rem;
+        }
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        img {
+            width: 3.2rem;
+            height: 3.2rem;
+            border-radius: v.$radius-full;
+            object-fit: cover;
+            border: 2px solid v.$primary;
+        }
+    }
+
+    &__logout {
+        background: none;
+        border: 1px solid v.$glass-border;
+        color: v.$text-muted;
+        padding: 0.6rem 1.4rem;
+        border-radius: v.$radius-md;
+        font-size: 1.3rem;
+        cursor: pointer;
+        transition: all v.$transition-fast;
+        font-family: v.$fuente-principal;
+
+        &:hover {
+            border-color: v.$error;
+            color: v.$error;
+        }
+    }
+}
+
+// ── Base8 Footer ──
+.b8-footer {
+    background: v.$bg-darkest;
+    border-top: 1px solid v.$glass-border;
+    padding: 4rem 2rem;
+    margin-top: 6rem;
+
+    &__grid {
+        @include m.contenedor;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+
+        @include m.tablet {
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+        }
+    }
+
+    &__brand {
+        font-size: 2rem;
+        font-weight: v.$black;
+        margin-bottom: 1rem;
+
+        span {
+            @include m.texto-degradado(v.$primary, v.$accent);
+        }
+    }
+
+    &__desc {
+        color: v.$text-muted;
+        font-size: 1.4rem;
+        line-height: 1.7;
+    }
+
+    &__title {
+        font-size: 1.3rem;
+        font-weight: v.$bold;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: v.$text-secondary;
+        margin-bottom: 1.5rem;
+    }
+
+    &__links {
+        @include m.reset-lista;
+
+        li {
+            margin-bottom: 0.8rem;
+        }
+
+        a {
+            color: v.$text-muted;
+            font-size: 1.4rem;
+            transition: color v.$transition-fast;
+
+            &:hover {
+                color: v.$primary;
+            }
+        }
+    }
+
+    &__bottom {
+        @include m.contenedor;
+        text-align: center;
+        padding-top: 3rem;
+        margin-top: 3rem;
+        border-top: 1px solid v.$glass-border;
+
+        p {
+            font-size: 1.3rem;
+            color: v.$text-dim;
+        }
+    }
+}
+
+// ── Dashboard (User) ──
+.user-dashboard {
+    padding-top: 9rem;
+
+    &__welcome {
+        @include m.contenedor;
+        margin-bottom: 4rem;
+    }
+
+    &__greeting {
+        font-size: 1.5rem;
+        color: v.$text-muted;
+        margin-bottom: 0.5rem;
+    }
+
+    &__name {
+        @include m.texto-fluido(2rem, 3.2rem);
+        font-weight: v.$black;
+        margin: 0 0 3rem;
+
+        span {
+            @include m.texto-degradado(v.$primary, v.$accent);
+        }
+    }
+}
+
+// ── Admin Sidebar (Dark) ──
+.dashboard {
+    background-color: v.$bg-dark;
+
+    &__grid {
+        display: flex;
+        min-height: 100vh;
+    }
+
+    &__sidebar {
+        width: 25rem;
+        background: v.$bg-darkest;
+        border-right: 1px solid v.$glass-border;
+        padding: 2rem 0;
+        position: fixed;
+        top: 7rem;
+        bottom: 0;
+        overflow-y: auto;
+    }
+
+    &__contenido {
+        flex: 1;
+        margin-left: 25rem;
+        padding: 3rem;
+    }
+
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        padding: 0 1rem;
+    }
+
+    &__enlace {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 1.2rem 1.6rem;
+        color: v.$text-secondary;
+        font-size: 1.4rem;
+        font-weight: v.$medium;
+        border-radius: v.$radius-md;
+        transition: all v.$transition-fast;
+
+        &:hover {
+            background: v.$bg-hover;
+            color: v.$text-primary;
+        }
+
+        &--actual {
+            background: rgba(v.$primary, 0.12);
+            color: v.$primary;
+        }
+    }
+
+    &__icono {
+        width: 2rem;
+        text-align: center;
+        font-size: 1.6rem;
+    }
+
+    &__menu-texto {
+        font-size: 1.4rem;
+    }
+}
+
+// ── Admin Header (Dark) ──
+.admin-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 7rem;
+    @include m.glassmorphism-strong;
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+
+    &__logo {
+        font-size: 2rem;
+        font-weight: v.$black;
+        color: v.$text-primary;
+
+        span {
+            @include m.texto-degradado(v.$primary, v.$accent);
+        }
+    }
+}
+
+// ── Keep original layout compat ──
+.header {
+    min-height: auto;
+    padding-top: 7rem;
+    background: linear-gradient(135deg, v.$bg-darkest 0%, v.$bg-dark 50%, rgba(v.$primary, 0.08) 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 40rem;
+        height: 40rem;
+        background: radial-gradient(circle, rgba(v.$primary, 0.12) 0%, transparent 70%);
+        top: -10rem;
+        right: -10rem;
+        pointer-events: none;
+    }
+
+    &__contenedor {
+        @include m.contenedor;
+        padding: 6rem 0;
+    }
+
+    &__navegacion {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1.5rem;
+        margin-bottom: 4rem;
+    }
+
+    &__enlace {
+        color: v.$text-secondary;
+        font-size: 1.4rem;
+        font-weight: v.$medium;
+        transition: color v.$transition-fast;
+
+        &:hover {
+            color: v.$primary;
+        }
+    }
+
+    &__form {
+        display: inline;
+    }
+
+    &__submit {
+        background: none;
+        border: none;
+        color: v.$text-secondary;
+        font-size: 1.4rem;
+        font-weight: v.$medium;
+        cursor: pointer;
+        font-family: v.$fuente-principal;
+
+        &:hover {
+            color: v.$error;
+        }
+    }
+
+    &__contenido {
+        text-align: center;
+        padding: 4rem 0;
+    }
+
+    &__logo {
+        @include m.texto-fluido(3rem, 5rem);
+        font-weight: v.$black;
+        margin-bottom: 1rem;
+        @include m.texto-degradado(v.$primary, v.$accent);
+    }
+
+    &__texto {
+        color: v.$text-secondary;
+        font-size: 1.8rem;
+        margin: 0.5rem 0;
+
+        &--modalidad {
+            color: v.$text-muted;
+        }
+    }
+
+    &__boton {
+        @include m.boton(v.$primary, v.$blanco);
+        margin-top: 2rem;
+        display: inline-flex;
+    }
+}
+
+// ── Nav Bar (Sticky) ──
+.barra {
+    @include m.glassmorphism-strong;
+    border-radius: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    &__contenido {
+        @include m.contenedor;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+    }
+
+    &__logo {
+        font-size: 2rem;
+        font-weight: v.$black;
+        @include m.texto-degradado(v.$primary, v.$accent);
+    }
+}
+
+.navegacion {
+    display: flex;
+    gap: 0.3rem;
+
+    &__enlace {
+        padding: 0.8rem 1.4rem;
+        font-size: 1.3rem;
+        font-weight: v.$medium;
+        color: v.$text-secondary;
+        border-radius: v.$radius-md;
+        transition: all v.$transition-fast;
+
+        &:hover {
+            color: v.$text-primary;
+            background: v.$bg-hover;
+        }
+
+        &--actual {
+            color: v.$primary;
+            background: rgba(v.$primary, 0.1);
+        }
+    }
+}
+
+// ── Resumen / Stats ──
+.resumen {
+    padding: 6rem 2rem;
+
+    &__grid {
+        @include m.contenedor-md;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+
+        @include m.tablet {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &__bloque {
+        @include m.glassmorphism;
+        padding: 2.5rem;
+        text-align: center;
+        @include m.card-hover;
+    }
+
+    &__texto {
+        color: v.$text-secondary;
+        font-size: 1.4rem;
+
+        &--numero {
+            @include m.texto-fluido(2.4rem, 4rem);
+            font-weight: v.$black;
+            @include m.texto-degradado(v.$primary, v.$accent);
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+// ── Speakers ──
+.speakers {
+    padding: 6rem 2rem;
+
+    &__heading {
+        @include m.nombre-pagina;
+        @include m.texto-degradado(v.$primary, v.$primary-light);
+    }
+
+    &__descripcion {
+        @include m.descripcion-pagina;
+    }
+
+    &__grid {
+        @include m.contenedor;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+        @include m.tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include m.desktop {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+.speaker {
+    @include m.glassmorphism;
+    @include m.card-hover;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &__imagen {
+        width: 12rem;
+        height: 12rem;
+        border-radius: v.$radius-full;
+        object-fit: cover;
+        margin-bottom: 1.5rem;
+        border: 3px solid v.$primary;
+        box-shadow: 0 0 20px rgba(v.$primary, 0.2);
+    }
+
+    &__informacion {
+        width: 100%;
+    }
+
+    &__nombre {
+        font-size: 1.8rem;
+        font-weight: v.$bold;
+        margin: 0 0 0.4rem;
+    }
+
+    &__ubicacion {
+        color: v.$text-muted;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    &__listado-skills {
+        @include m.tags;
+        justify-content: center;
+    }
+
+    &__skill {
+        // Inherits from tags mixin
+    }
+}
+
+.speaker-sociales {
+    @include m.menu-social(v.$text-secondary, 2rem);
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+// ── Boletos ──
+.boletos {
+    padding: 6rem 2rem;
+
+    &__heading {
+        @include m.nombre-pagina;
+        @include m.texto-degradado(v.$primary, v.$accent);
+    }
+
+    &__descripcion {
+        @include m.descripcion-pagina;
+    }
+
+    &__grid {
+        @include m.contenedor-md;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+        @include m.tablet {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+.boleto {
+    @include m.glassmorphism;
+    @include m.card-hover;
+    padding: 3rem 2rem;
+    text-align: center;
+
+    &__logo {
+        font-size: 2.4rem;
+        font-weight: v.$black;
+        margin: 0 0 1rem;
+        @include m.texto-degradado(v.$primary, v.$accent);
+    }
+
+    &__plan {
+        font-size: 1.6rem;
+        color: v.$text-secondary;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 1rem;
+    }
+
+    &__precio {
+        font-size: 3.6rem;
+        font-weight: v.$black;
+        color: v.$primary;
+    }
+
+    &__enlace-contenedor {
+        text-align: center;
+        margin-top: 3rem;
+    }
+
+    &__enlace {
+        @include m.boton(v.$primary, v.$blanco);
+        display: inline-flex;
+    }
+}
+
+// ── Map ──
+.mapa {
+    height: 40rem;
+    border-radius: 0;
+    filter: brightness(0.8) contrast(1.2);
+}
+
+// ── Error page ──
+.error-page {
+    text-align: center;
+    padding: 10rem 2rem;
+    
+    h1 {
+        @include m.texto-fluido(6rem, 12rem);
+        font-weight: v.$black;
+        @include m.texto-degradado(v.$primary, v.$accent);
+        margin: 0;
+    }
+
+    p {
+        font-size: 1.8rem;
+    }
+}
+
+// ── Review Card ──
+.review-card {
+    @include m.glassmorphism;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    &__avatar {
+        width: 3.6rem;
+        height: 3.6rem;
+        border-radius: v.$radius-full;
+        object-fit: cover;
+    }
+
+    &__author {
+        font-weight: v.$semibold;
+        font-size: 1.4rem;
+    }
+
+    &__date {
+        font-size: 1.2rem;
+        color: v.$text-muted;
+    }
+
+    &__body {
+        color: v.$text-secondary;
+        font-size: 1.4rem;
+        line-height: 1.7;
+    }
+}
+
+// ── Asset Detail ──
+.asset-detail {
+    @include m.contenedor;
+    padding-top: 9rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+
+    @include m.desktop {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    &__main {
+        &-card {
+            @include m.glassmorphism-strong;
+            padding: 3rem;
+        }
+    }
+
+    &__sidebar {
+        &-card {
+            @include m.glassmorphism;
+            padding: 2rem;
+            position: sticky;
+            top: 9rem;
+        }
+    }
+
+    &__title {
+        font-size: 2.8rem;
+        font-weight: v.$black;
+        margin: 0 0 1rem;
+    }
+
+    &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid v.$glass-border;
+    }
+
+    &__meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.3rem;
+        color: v.$text-muted;
+
+        i {
+            color: v.$primary;
+        }
+    }
+
+    &__description {
+        color: v.$text-secondary;
+        font-size: 1.5rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+    }
+
+    &__price {
+        font-size: 3.2rem;
+        font-weight: v.$black;
+        color: v.$primary;
+        margin-bottom: 1.5rem;
+    }
+
+    &__buy-btn {
+        @include m.boton(v.$primary, v.$blanco);
+        width: 100%;
+        padding: 1.4rem;
+        font-size: 1.6rem;
+    }
+
+    &__author-card {
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid v.$glass-border;
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+
+        img {
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: v.$radius-full;
+            object-fit: cover;
+        }
+    }
+
+    &__author-name {
+        font-weight: v.$semibold;
+        font-size: 1.5rem;
+    }
+
+    &__author-faculty {
+        font-size: 1.2rem;
+        color: v.$text-muted;
+    }
+}
+
+// ── Reputation Profile ──
+.rep-profile {
+    @include m.contenedor-md;
+    padding-top: 9rem;
+
+    &__header {
+        @include m.glassmorphism-strong;
+        padding: 3rem;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    &__avatar {
+        width: 10rem;
+        height: 10rem;
+        border-radius: v.$radius-full;
+        object-fit: cover;
+        margin: 0 auto 1.5rem;
+        border: 4px solid v.$primary;
+        box-shadow: 0 0 24px rgba(v.$primary, 0.3);
+    }
+
+    &__name {
+        font-size: 2.4rem;
+        font-weight: v.$black;
+        margin: 0 0 0.5rem;
+    }
+
+    &__points {
+        font-size: 3.6rem;
+        font-weight: v.$black;
+        color: v.$accent;
+        margin: 1rem 0;
+    }
+
+    &__progress {
+        max-width: 40rem;
+        margin: 2rem auto 0;
+
+        &-bar {
+            width: 100%;
+            height: 0.8rem;
+            background: v.$bg-input;
+            border-radius: v.$radius-full;
+            overflow: hidden;
+
+            &-fill {
+                height: 100%;
+                border-radius: v.$radius-full;
+                background: linear-gradient(to right, v.$primary, v.$accent);
+                transition: width 1s ease;
+            }
+        }
+
+        &-label {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+            color: v.$text-muted;
+        }
+    }
+
+    &__history {
+        margin-top: 3rem;
+    }
+
+    &__event {
+        @include m.glassmorphism;
+        padding: 1.5rem 2rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &-desc {
+            font-size: 1.4rem;
+            color: v.$text-secondary;
+        }
+
+        &-points {
+            font-weight: v.$bold;
+            color: v.$accent;
+            font-size: 1.4rem;
+        }
+
+        &-date {
+            font-size: 1.2rem;
+            color: v.$text-dim;
+        }
+    }
+}

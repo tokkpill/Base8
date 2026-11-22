@@ -1,0 +1,85 @@
+// ══════════════════════════════════════════════
+// BASE8 — Production Design Tokens
+// ══════════════════════════════════════════════
+
+// Typography
+$fuente-principal: 'Inter', system-ui, -apple-system, sans-serif;
+
+// Media Queries
+$telefono: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+$xl_desktop: 1200px;
+
+// ── Core Palette ──
+$primary: #10B981;       // Emerald Green
+$primary-light: #34D399;
+$primary-dark: #059669;
+
+$accent: #CCFF00;        // Neon Yellow (Prestige)
+$accent-soft: #A3E635;
+
+// ── Dark Mode Surfaces ──
+$bg-darkest: #0A0A0F;
+$bg-dark: #121212;
+$bg-surface: #1E1E2E;
+$bg-card: #252536;
+$bg-elevated: #2A2A3C;
+$bg-hover: #303044;
+$bg-input: #1A1A2A;
+
+// ── Light accents ──
+$blanco: #FFFFFF;
+$text-primary: #F1F5F9;
+$text-secondary: #94A3B8;
+$text-muted: #64748B;
+$text-dim: #475569;
+
+// ── Semantic Colors ──
+$success: #22C55E;
+$error: #EF4444;
+$warning: #F59E0B;
+$info: #3B82F6;
+$rojo: $error;
+$verde: $success;
+
+// ── Legacy compat ──
+$azul: $primary;
+$secundario: $primary-light;
+$negro: $bg-dark;
+$gris: $text-muted;
+$gris-claro: $bg-surface;
+$gris-oscuro: $bg-darkest;
+
+// ── Font Weights ──
+$delgada: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$black: 800;
+
+// ── Border Radius ──
+$radius-sm: 0.5rem;
+$radius-md: 0.75rem;
+$radius-lg: 1rem;
+$radius-xl: 1.5rem;
+$radius-full: 9999px;
+
+// ── Glassmorphism ──
+$glass-bg: rgba(30, 30, 46, 0.65);
+$glass-border: rgba(255, 255, 255, 0.08);
+$glass-blur: 16px;
+$glass-bg-light: rgba(255, 255, 255, 0.05);
+
+// ── Shadows ──
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+$shadow-glow: 0 0 20px rgba(16, 185, 129, 0.3);
+$shadow-accent: 0 0 20px rgba(204, 255, 0, 0.2);
+
+// ── Transitions ──
+$transition-fast: 150ms ease;
+$transition-base: 250ms ease;
+$transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
