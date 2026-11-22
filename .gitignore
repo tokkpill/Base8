@@ -5,14 +5,20 @@
 # Dependencias JavaScript
 /node_modules/
 
-# Variables de entorno y credenciales
+# Variables de entorno
 .env
 .env.*
+!.env.example
 
 # Archivos temporales
 *.log
 *.tmp
 
+# Caché
+.cache/
+.sass-cache/
+
 # Archivos del sistema
 .DS_Store
 Thumbs.db
+desktop.ini
